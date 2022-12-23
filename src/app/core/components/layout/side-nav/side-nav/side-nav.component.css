@@ -1,0 +1,28 @@
+mat-sidenav-container{
+  height: 100vh;
+}
+mat-sidenav{
+  width: 300px;
+  background-color:#3b3a48;
+  color: #fff;
+  padding: 1rem;
+}
+mat-icon{
+  color: #fff;
+  margin-inline-end: 10px;
+}
+a{
+  text-decoration: none;
+}
+.item-text{
+ color: #fff;
+}
+.loading{
+  display: flex;
+  justify-content: end;
+}
+main{
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #fff;
+}

@@ -1,0 +1,21 @@
+
+mat-toolbar{
+ justify-content: space-between;
+   background-color: black;
+}
+span{
+  color: #fff;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+a{
+  text-decoration: none;
+  color: #fff;
+}
+a:hover{
+  color: red;
+}

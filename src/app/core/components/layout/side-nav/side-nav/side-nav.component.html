@@ -1,0 +1,66 @@
+<mat-sidenav-container>
+  <mat-sidenav #snav>
+    <div class="loading">
+      <mat-spinner  diameter="20" color="primary" *ngIf="loading" ></mat-spinner>
+    </div>
+    <mat-list *ngIf="!loading">
+      <div *ngFor="let item of navMenu.children">
+        <div *ngIf="item.children.length>0 ; else hasNoChildren">
+          <mat-list-item  *ngIf="item.roll === userData.roll || item.roll.length === 0" >
+            <mat-icon matListItemIcon >
+             {{item.icon}}
+            </mat-icon>
+            <div matListItemTitle class="item-text">
+              {{item.displayName}}
+            </div>
+          </mat-list-item>
+
+
+         <div *ngFor="let childrenOfItem of item.children">
+          <a [routerLink]="[childrenOfItem.route]"
+          *ngIf="childrenOfItem.roll === userData.roll || childrenOfItem.roll.length === 0">
+            <mat-list-item>
+              <mat-icon matListItemIcon >
+               {{childrenOfItem.icon}}
+              </mat-icon>
+              <div matListItemTitle class="item-text" >
+                {{childrenOfItem.displayName}}
+              </div>
+            </mat-list-item>
+          </a>
+         </div>
+        </div>
+
+
+         <ng-template  #hasNoChildren >
+          <a [routerLink]="[item.route]"
+          *ngIf="item.roll === userData.roll || item.roll.length === 0"
+          >
+            <mat-list-item>
+              <mat-icon matListItemIcon >
+               {{item.icon}}
+              </mat-icon>
+              <div matListItemTitle class="item-text" >
+                {{item.displayName}}
+              </div>
+            </mat-list-item>
+          </a>
+         </ng-template>
+      </div>
+    </mat-list>
+
+    <button mat-button (click)="onLoggedoutClicked()">
+      <mat-icon  >logout</mat-icon>
+      logout</button>
+  </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <button mat-icon-button (click)="snav.toggle()">
+          <mat-icon style="color:blue" >Menu</mat-icon>
+        </button>
+      </mat-toolbar>
+      <main class="mat-elevation-z8" >
+        <router-outlet> </router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

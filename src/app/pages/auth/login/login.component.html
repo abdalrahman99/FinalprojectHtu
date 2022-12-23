@@ -1,0 +1,25 @@
+<div class="main">
+  <div class="login-card">
+
+<form [formGroup]="formGroup">
+
+      <h3>Login</h3>
+      <mat-form-field appearance="outline" class="field-width" >
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" type="email" formControlName="email">
+        <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline" class="field-width">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" type="password" formControlName="password" >
+        <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+      <a [routerLink]="['/auth/signup']">create account?</a>
+
+      <button mat-raised-button color="primary" (click)="onloginCliked()">Login</button>
+    </form>
+  </div>
+</div>
