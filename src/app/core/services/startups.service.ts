@@ -8,7 +8,7 @@ import { Startup } from '../interfaces/startups.interface';
 })
 export class StartupsService {
 dbpath='/startups';
-dbRef: AngularFireList<Startup>;
+dbRef: AngularFireList<any>;
 
 
   constructor(private angularFiredatabase:AngularFireDatabase) {

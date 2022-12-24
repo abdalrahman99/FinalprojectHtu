@@ -1,20 +1,25 @@
 <form [formGroup]="formGroup">
 
+<label for="file" class="logo">Logo</label>
+<input
+   type="file"
+   id="file"
+   (change)="onFileInputChange($event)"
+   multiple
+   accept="image/*" >
+<img [src]="imgSrc"  alt=""
+  *ngIf="formGroup.controls['logo'].value" >
 
-<label form="file" class="logo">Logo</label>
-<input  type="file" id="file" accept="image/*" >
-
-  <mat-form-field appearance="outline">
+<mat-form-field appearance="outline">
     <mat-label>Name</mat-label>
     <input matInput placeholder="Name" formControlName="name" >
     <mat-error *ngIf="formGroup.get('name')?.invalid">{{getErrorMessage(formGroup.get('name'))}}</mat-error>
   </mat-form-field>
 
-
     <mat-form-field appearance="outline">
       <mat-label>Sectors</mat-label>
       <mat-select multiple formControlName="sectors" >
-        <mat-option ></mat-option>
+        <mat-option [value]="'sectors1'" >sector1 </mat-option>
       </mat-select>
       <mat-error *ngIf="formGroup.get('sectors')?.invalid">{{getErrorMessage(formGroup.get('sectors'))}}</mat-error>
     </mat-form-field>
@@ -51,5 +56,5 @@
     <input matInput placeholder="Year of Establishment" formControlName="yearOfEstablishment" >
   </mat-form-field>
 
-  <button mat-raised-button color="primary">Add Startup </button>
+  <button mat-raised-button color="primary" (click)="onAddCliked()" >Add Startup </button>
   </form>
