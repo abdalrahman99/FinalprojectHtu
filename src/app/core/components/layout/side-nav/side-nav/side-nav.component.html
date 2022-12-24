@@ -15,7 +15,6 @@
             </div>
           </mat-list-item>
 
-
          <div *ngFor="let childrenOfItem of item.children">
           <a [routerLink]="[childrenOfItem.route]"
           *ngIf="childrenOfItem.roll === userData.roll || childrenOfItem.roll.length === 0">

@@ -5,7 +5,7 @@ export interface Startup{
   name:string,
   logo?:string,
   city?:string,
-  sectors:Sectors[],
+  sectors:[],
   numberOfEmployees?:number|null,
   yearOfEstablishment?:string,
   websiteUrl:string,
