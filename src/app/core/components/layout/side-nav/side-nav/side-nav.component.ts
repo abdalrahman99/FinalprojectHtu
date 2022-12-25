@@ -49,7 +49,7 @@ getuserInf(){
   this._authService.userInf.subscribe((user)=>{
     this.userData = user;
     console.log(this.userData );
-    if(this.userData.roll){
+    if(this.userData.role){
       this.loading=false;
     }
 

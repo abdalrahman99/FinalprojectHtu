@@ -13,6 +13,9 @@ import { AddStartupComponent } from './pages/add-startup/add-startup.component';
 import { UpdateStartupComponent } from './pages/update-startup/update-startup.component';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PreviewComponent } from './pages/preview/preview.component';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { RequistComponent } from './pages/requist/requist.component';
 
 const MatImport=[
   MatTableModule,
@@ -22,12 +25,15 @@ const MatImport=[
   MatMenuModule,
   MatPaginatorModule,
   MatSelectModule,
+  MatProgressSpinnerModule,
 ]
 @NgModule({
   declarations: [
     StartupComponent,
     AddStartupComponent,
-    UpdateStartupComponent
+    UpdateStartupComponent,
+    PreviewComponent,
+    RequistComponent
   ],
   imports: [
     CommonModule,

@@ -2,18 +2,18 @@ export class NavItemDto{
   displayName:string;
   icon:string;
   route:string;
-  roll:string;
+  role:string;
   children!:NavItemDto[];
 
   constructor(
     displayName:string,
       icon:string,
-      roll:string,
+      role:string,
       route:string,children?:NavItemDto[]){
  this.displayName =displayName;
  this.icon =icon;
  this.route =route;
- this.roll=roll;
+ this.role=role;
  this.children= children? children:[];
 
 

@@ -6,7 +6,7 @@
     <mat-list *ngIf="!loading">
       <div *ngFor="let item of navMenu.children">
         <div *ngIf="item.children.length>0 ; else hasNoChildren">
-          <mat-list-item  *ngIf="item.roll === userData.roll || item.roll.length === 0" >
+          <mat-list-item  *ngIf="item.role === userData.role || item.role.length === 0" >
             <mat-icon matListItemIcon >
              {{item.icon}}
             </mat-icon>
@@ -17,7 +17,7 @@
 
          <div *ngFor="let childrenOfItem of item.children">
           <a [routerLink]="[childrenOfItem.route]"
-          *ngIf="childrenOfItem.roll === userData.roll || childrenOfItem.roll.length === 0">
+          *ngIf="childrenOfItem.role === userData.role || childrenOfItem.role.length === 0">
             <mat-list-item>
               <mat-icon matListItemIcon >
                {{childrenOfItem.icon}}
@@ -33,7 +33,7 @@
 
          <ng-template  #hasNoChildren >
           <a [routerLink]="[item.route]"
-          *ngIf="item.roll === userData.roll || item.roll.length === 0"
+          *ngIf="item.role === userData.role || item.role.length === 0"
           >
             <mat-list-item>
               <mat-icon matListItemIcon >
