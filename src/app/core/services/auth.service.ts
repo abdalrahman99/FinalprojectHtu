@@ -52,7 +52,7 @@ constructor(
       userId:userId,
       name:name,
       email:email,
-      roll:'enduser', //end-user
+      role:'enduser', //end-user
 
     }));
   }
