@@ -3,13 +3,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ededed;
+  background-color: #341f84;
 }
 .login-card{
   min-width: 300px;
   max-width: 900px;
   min-height: 300px;
-  box-shadow: 5px 10px 12px #888888;
+  box-shadow: 5px 10px 12px rgb(59, 42, 126)4;
   background-color:#fff;
   border-radius: 10px;
 

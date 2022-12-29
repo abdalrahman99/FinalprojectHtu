@@ -14,7 +14,6 @@
               {{item.displayName}}
             </div>
           </mat-list-item>
-
          <div *ngFor="let childrenOfItem of item.children">
           <a [routerLink]="[childrenOfItem.route]"
           *ngIf="childrenOfItem.role === userData.role || childrenOfItem.role.length === 0">
@@ -29,8 +28,6 @@
           </a>
          </div>
         </div>
-
-
          <ng-template  #hasNoChildren >
           <a [routerLink]="[item.route]"
           *ngIf="item.role === userData.role || item.role.length === 0"
@@ -47,15 +44,14 @@
          </ng-template>
       </div>
     </mat-list>
-
     <button mat-button (click)="onLoggedoutClicked()">
-      <mat-icon  >logout</mat-icon>
+      <mat-icon>logout</mat-icon>
       logout</button>
   </mat-sidenav>
     <mat-sidenav-content>
       <mat-toolbar>
         <button mat-icon-button (click)="snav.toggle()">
-          <mat-icon style="color:blue" >Menu</mat-icon>
+          <mat-icon style="color:#fab73f" >menu</mat-icon>
         </button>
       </mat-toolbar>
       <main class="mat-elevation-z8" >

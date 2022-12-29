@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { StartupsService } from 'src/app/core/services/startups.service';
+import { StartupsService } from 'src/app/core/services/startup/startups.service';
 import { OnInit } from '@angular/core';
 import { Startup } from 'src/app/core/interfaces/startups.interface';
 
@@ -28,7 +28,8 @@ loading = true ;
   ngOnInit(): void {
   this.activatedRoute.queryParams.subscribe((result)=>{
     if(result['key']){
-      this.key =result['key']
+      this.key =result['key'];
+      this.getById();
     }
   });
 }

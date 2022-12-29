@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Startup } from 'src/app/core/interfaces/startups.interface';
-import { StartupsService } from 'src/app/core/services/startups.service';
+import { StartupsService } from 'src/app/core/services/startup/startups.service';
 import { UploadService } from 'src/app/core/services/upload.service';
 
 @Component({

@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { StartupsService } from 'src/app/core/services/startups.service';
+import { StartupsService } from 'src/app/core/services/startup/startups.service';
 import { UploadService } from 'src/app/core/services/upload.service';
 
 @Component({
@@ -11,11 +11,9 @@ import { UploadService } from 'src/app/core/services/upload.service';
   styleUrls: ['./update-startup.component.css']
 })
 export class UpdateStartupComponent implements OnInit {
-
-  key:string='';
   formGroup:FormGroup;
   imgSrc:any;
-
+  key:string='';
   constructor(
     private activatedRoute:ActivatedRoute,
     private _startupService:StartupsService,
@@ -86,7 +84,6 @@ export class UpdateStartupComponent implements OnInit {
       }else{
         this.updateStartup();
       }
-
     }
    }
 
@@ -150,6 +147,5 @@ updateStartup(){
      reader.onload = e =>(this.imgSrc = reader.result);
 
     }
-
 
 }

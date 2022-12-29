@@ -1,14 +1,12 @@
 <form [formGroup]="formGroup">
-
-  <label for="file" class="logo">Logo</label>
+  <label for="file" class="logo"><img [src]="imgSrc"  alt=""
+    *ngIf="formGroup.controls['logo'].value" ></label>
   <input
      type="file"
      id="file"
      (change)="onFileInputChange($event)"
      multiple
      accept="image/*" >
-  <img [src]="imgSrc"  alt=""
-    *ngIf="formGroup.controls['logo'].value" >
 
   <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>

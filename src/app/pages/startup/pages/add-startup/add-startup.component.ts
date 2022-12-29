@@ -1,8 +1,9 @@
 import { Location } from '@angular/common';
 import { Component,OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Startup } from 'src/app/core/interfaces/startups.interface';
-import { StartupsService } from 'src/app/core/services/startups.service';
+import { SectorsService } from 'src/app/core/services/sectors/sectors.service';
+import { StartupsService } from 'src/app/core/services/startup/startups.service';
 import { UploadService } from 'src/app/core/services/upload.service';
 
 @Component({
@@ -24,11 +25,12 @@ export class AddStartupComponent  implements OnInit{
     websiteUrl:'',
     yearOfEstablishment:'',
    };
-
+listOfSectors:any[]=[];
   constructor(
     private formBulider:FormBuilder,
     private _startupService:StartupsService,
     private _uploadService:UploadService,
+    private _sectorService:SectorsService,
     private location:Location,
     ){
     this.formGroup=this.formBulider.group({
@@ -43,8 +45,16 @@ export class AddStartupComponent  implements OnInit{
     })
   }
 
-  ngOnInit(): void {}
-
+  ngOnInit(): void {
+    this.getAllSectors();
+  }
+getAllSectors(){
+  this._sectorService.getAll().subscribe((result)=>{
+    if(result){
+      this.listOfSectors= result;
+    }
+  });
+}
    getErrorMessage(control:any){
     if(control && control.errors){
 
@@ -66,9 +76,7 @@ export class AddStartupComponent  implements OnInit{
    }
 
 
-
-
-   onAddCliked(){
+   onAddStartupCliked(){
     if(this.formGroup.invalid){
       this.validaterFormGroup();
     }else{
@@ -83,7 +91,7 @@ export class AddStartupComponent  implements OnInit{
 
 
    createStartup(){
-this._startupService.create({
+  this._startupService.create({
   name:this.formGroup.controls['name'].value,
   emailAddress:this.formGroup.controls['emailAddress'].value,
   websiteUrl:this.formGroup.controls['websiteUrl'].value,
@@ -101,17 +109,12 @@ this._startupService.create({
 
    onFileInputChange($event:any){
     console.log($event);
-
      this.formGroup.controls['logo'].setValue($event.target.files[0]);
-
      //file data Url storge
      const reader = new FileReader();
      reader.readAsDataURL(this.formGroup.controls['logo'].value);
      reader.onload = e =>(this.imgSrc = reader.result);
-
     }
-
-
 
    upload(){
     this._uploadService
@@ -120,19 +123,16 @@ this._startupService.create({
     .subscribe((file)=>{
      if(file?.metadata){
       this.getDownloadURL();
-
      }
   });
 };
 
 getDownloadURL(){
-
   this._uploadService.getDownloadURL().subscribe((url)=>{
-    console.log();
+  console.log();
   this.formGroup.controls['logo'].setValue(url);
   this.createStartup();
   });
-
 }
 
 }
