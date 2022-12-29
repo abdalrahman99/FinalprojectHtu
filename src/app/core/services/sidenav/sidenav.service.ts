@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { NavItemDto } from '../dto/nav-item';
-import { NavMenuDto } from '../dto/nav-menu';
+import { NavItemDto } from '../../dto/nav-item';
+import { NavMenuDto } from '../../dto/nav-menu';
 
 @Injectable({
   providedIn: 'root'

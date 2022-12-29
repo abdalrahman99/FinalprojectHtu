@@ -3,8 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Startup } from 'src/app/core/interfaces/startups.interface';
-import { AuthService } from 'src/app/core/services/auth.service';
-import { StartupsService } from 'src/app/core/services/startups.service';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { StartupsService } from 'src/app/core/services/startup/startups.service';
 
 @Component({
   selector: 'app-startup',
@@ -25,7 +25,6 @@ export class StartupComponent implements OnInit, OnDestroy {
 
     //unsubscribe ngOnDestroy
     ngOnDestroy(): void {
-
     }
 
   ngOnInit(): void {
@@ -35,7 +34,6 @@ export class StartupComponent implements OnInit, OnDestroy {
   }
   getuserInf(){
     this._authService.userInf.subscribe((user)=>{
-
       this.userData = user;
       console.log(this.userData );
       if(this.userData.role){
@@ -50,10 +48,8 @@ export class StartupComponent implements OnInit, OnDestroy {
   getAllData(){
     this._startupServices.getAll().subscribe((result:any)=>{
       if(result){
-
       this.dataSource =new MatTableDataSource(result);
       console.log(result);
-
       this.dataSource.paginator =this.paginator;
       this.dataSource._updateChangeSubscription();
       this.loading=false;
@@ -70,11 +66,6 @@ export class StartupComponent implements OnInit, OnDestroy {
     }
   }
 
-  onAddCliked(){
-      this.router.navigate(['/startup/add-startup']);
-  }
-
-
   onEditCliked(row:Startup){
    this.router.navigate(['/startup/update-startup'],{
     queryParams:{
@@ -89,9 +80,12 @@ export class StartupComponent implements OnInit, OnDestroy {
    });
 }
 
+onAddCliked(){
+  this.router.navigate(['/startup/add-startup']);
+}
 
 onRowCliked(row:Startup){
-  this.router.navigate(['/startup/request-startup'],{
+  this.router.navigate(['/startup/preview-startup'],{
     queryParams:{
       key:row.key,
     }
@@ -99,9 +93,8 @@ onRowCliked(row:Startup){
 }
 
 onRequestNewStartup(){
-  this.router.navigate([''])
+  this.router.navigate(['/startup/request-startup'])
 }
-
 
 }
 

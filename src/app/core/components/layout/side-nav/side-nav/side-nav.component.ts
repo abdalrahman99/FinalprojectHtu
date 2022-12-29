@@ -2,9 +2,9 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import{BreakpointObserver, BreakpointState} from '@angular/cdk/layout'
 import { delay } from 'rxjs';
-import { SidenavService } from 'src/app/core/services/sidenav.service';
+import { SidenavService } from 'src/app/core/services/sidenav/sidenav.service';
 import { NavMenuDto } from 'src/app/core/dto/nav-menu';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
   selector: 'app-side-nav',

@@ -5,14 +5,12 @@ import {AngularFireStorage, AngularFireStorageReference, GetDownloadURLPipe } fr
   providedIn: 'root'
 })
 export class UploadService {
-
-   dbpath='/files';
+  dbpath='/files';
   storgeRef:AngularFireStorageReference;
   filueUrl:string='';
   constructor(private storage:AngularFireStorage) {
       this.storgeRef=storage.ref('');
    }
-
    upload(file:File) {
     const  filePath = `${this.dbpath}/${file.name}${new Date()}`;
     this.storgeRef = this.storage.ref(filePath);

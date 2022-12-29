@@ -1,12 +1,12 @@
 
-<!-- <div class="loading">
+<div class="loading">
   <mat-spinner  diameter="20" color="primary" *ngIf="loading" ></mat-spinner>
 </div>
 <div *ngIf="!loading">
-</div> -->
+
 <div class="row">
   <div class="col">
-    <mat-form-field appearance="outline" >
+    <mat-form-field class="full-width" appearance="outline" >
       <mat-label>Search</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
       <mat-icon matSuffix>search</mat-icon>
@@ -81,7 +81,6 @@
             <mat-icon>delete</mat-icon>
             <span>Delete</span>
           </button>
-
         </mat-menu>
       </td>
     </ng-container>
@@ -99,4 +98,4 @@
 
   </mat-paginator>
 
-
+</div>
