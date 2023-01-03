@@ -14,6 +14,7 @@ import { UploadService } from 'src/app/core/services/upload.service';
 export class AddStartupComponent  implements OnInit{
   formGroup:FormGroup;
   imgSrc:any;
+  listOfSectors:any[]=[];
 
   formData:Startup={
     city:'',
@@ -25,7 +26,7 @@ export class AddStartupComponent  implements OnInit{
     websiteUrl:'',
     yearOfEstablishment:'',
    };
-listOfSectors:any[]=[];
+
   constructor(
     private formBulider:FormBuilder,
     private _startupService:StartupsService,

@@ -18,7 +18,7 @@
       <mat-form-field appearance="outline">
         <mat-label>Sectors</mat-label>
         <mat-select multiple formControlName="sectors" >
-          <mat-option [value]="'sectors1'" >sector1 </mat-option>
+          <mat-option *ngFor="let item of listOfSectors" [value]="item" >{{item.name}} </mat-option>
         </mat-select>
         <mat-error *ngIf="formGroup.get('sectors')?.invalid">{{getErrorMessage(formGroup.get('sectors'))}}</mat-error>
       </mat-form-field>

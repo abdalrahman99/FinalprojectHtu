@@ -16,6 +16,7 @@ export class StartupComponent implements OnInit, OnDestroy {
   dataSource=new MatTableDataSource<Startup>([]);
   displayedColumns =['name','emailAddress','sectors','city'];
   userData:any;
+  listOfSectors:any[]=[];
   loading= true;
   constructor(
     private _startupServices:StartupsService,

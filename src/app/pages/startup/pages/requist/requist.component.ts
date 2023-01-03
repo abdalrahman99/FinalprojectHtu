@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Startup } from 'src/app/core/interfaces/startups.interface';
+import { SectorsService } from 'src/app/core/services/sectors/sectors.service';
 import { StartupsService } from 'src/app/core/services/startup/startups.service';
 import { UploadService } from 'src/app/core/services/upload.service';
 
@@ -13,7 +14,7 @@ import { UploadService } from 'src/app/core/services/upload.service';
 export class RequistComponent implements OnInit{
   formGroup:FormGroup;
   imgSrc:any;
-
+  listOfSectors:any[]=[]
   formData:Startup={
     city:'',
     emailAddress:'',
@@ -29,6 +30,7 @@ export class RequistComponent implements OnInit{
     private formBulider:FormBuilder,
     private _startupService:StartupsService,
     private _uploadService:UploadService,
+    private _sectorService:SectorsService,
     private location:Location,
     ){
     this.formGroup=this.formBulider.group({
@@ -43,8 +45,17 @@ export class RequistComponent implements OnInit{
     })
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAllSectors();
+  }
 
+  getAllSectors(){
+    this._sectorService.getAll().subscribe((result)=>{
+      if(result){
+        this.listOfSectors= result;
+      }
+    });
+  }
    getErrorMessage(control:any){
     if(control && control.errors){
 

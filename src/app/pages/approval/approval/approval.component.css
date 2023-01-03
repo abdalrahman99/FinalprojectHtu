@@ -1,0 +1,23 @@
+.row{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: inherit;
+  flex-wrap: wrap;
+}
+.col{
+  flex: 1;
+}
+.col-startup-btn{
+text-align: end;
+}
+.btn-action{
+  margin-inline-start: 10px;
+}
+table{
+  width: 100%;
+
+}
+hover{
+  cursor: pointer;
+}

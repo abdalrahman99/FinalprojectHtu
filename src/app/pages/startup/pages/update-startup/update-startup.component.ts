@@ -14,6 +14,7 @@ export class UpdateStartupComponent implements OnInit {
   formGroup:FormGroup;
   imgSrc:any;
   key:string='';
+  listOfSectors:any[]=[];
   constructor(
     private activatedRoute:ActivatedRoute,
     private _startupService:StartupsService,

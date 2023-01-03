@@ -56,15 +56,17 @@
           </button>
 
           <mat-menu #menu="matMenu">
-            <button mat-menu-item   (click)="onDeleteRowClicked(row)" >
-              <mat-icon>delete</mat-icon>
-              <span>Delete</span>
-            </button>
 
             <button mat-menu-item   (click)="onEditCliked(row)">
               <mat-icon>edit</mat-icon>
               <span>Edit</span>
             </button>
+
+            <button mat-menu-item   (click)="onDeleteRowClicked(row)" >
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+
           </mat-menu>
     </td>
     </ng-container>

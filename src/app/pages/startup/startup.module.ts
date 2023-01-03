@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PreviewComponent } from './pages/preview/preview.component';
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { RequistComponent } from './pages/requist/requist.component';
+import {MatCardModule} from '@angular/material/card';
 
 const MatImport=[
   MatTableModule,
@@ -26,6 +27,7 @@ const MatImport=[
   MatPaginatorModule,
   MatSelectModule,
   MatProgressSpinnerModule,
+  MatCardModule,
 ]
 @NgModule({
   declarations: [

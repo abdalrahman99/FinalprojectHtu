@@ -1,0 +1,15 @@
+.example-card {
+  padding: 1rem;
+  margin: 1rem;
+  max-width: 300px;
+}
+.card{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: beige;
+  /* background-color: #232330; */
+}
+mat-card-actions{
+  justify-content: end;
+}
