@@ -7,14 +7,15 @@ mat-sidenav{
   color: #fff;
   padding: 1rem;
 }
-mat-icon{
+/* mat-icon{
   color: #fff;
   margin-inline-end: 10px;
-}
+} */
 a{
   text-decoration: none;
 }
 .item-text{
+
  color: #fff;
 }
 .loading{
@@ -25,4 +26,7 @@ main{
   padding: 1rem;
   margin: 1rem;
   background-color: #fff;
+}
+button{
+  color: #fff;
 }

@@ -22,7 +22,7 @@
     >
     Add Startup</button>
     <button mat-raised-button
-    color="accent"
+    color="primary"
     class="btn-action"
     (click)="onRequestNewStartup()"
     *ngIf="userData.role === 'enduser'"
@@ -48,9 +48,7 @@
     <ng-container matColumnDef="sectors">
       <th mat-header-cell *matHeaderCellDef > Sectors </th>
       <td mat-cell *matCellDef="let row">
-      <div *ngFor="let item of row.sectors" >
-        {{item}}
-      </div>
+      <div *ngFor="let item of listOfSectors" >{{item}}</div>
       </td>
     </ng-container>
 

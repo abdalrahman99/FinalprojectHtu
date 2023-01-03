@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { PreviewStartupComponent } from './preview-startup/preview-startup.component';
 import { StartupComponent } from './startup/startup.component';
 
-
 const routes: Routes = [
   {
     path:'',
@@ -15,7 +14,7 @@ const routes: Routes = [
     component:StartupComponent
   },
   {
-    path:'startup-preview',
+    path:'preview-startup',
     component:PreviewStartupComponent,
   }
 ];
