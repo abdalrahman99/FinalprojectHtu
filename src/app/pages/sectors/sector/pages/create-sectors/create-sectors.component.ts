@@ -1,17 +1,19 @@
-import { Component ,OnInit} from '@angular/core';
+import { Component ,OnDestroy,OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Sectors } from 'src/app/core/interfaces/sector.interface';
 import { SectorsService } from 'src/app/core/services/sectors/sectors.service';
 import { Location } from '@angular/common';
 import { UploadService } from 'src/app/core/services/upload.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-create-sectors',
   templateUrl: './create-sectors.component.html',
   styleUrls: ['./create-sectors.component.css']
 })
-export class CreateSectorsComponent implements OnInit {
+export class CreateSectorsComponent implements OnInit , OnDestroy{
   formGroup:FormGroup;
   imgSrc:any;
+  subscribe!:Subscription;
   formData:Sectors={
     name:'',
     logo:'',
@@ -34,6 +36,11 @@ export class CreateSectorsComponent implements OnInit {
         categoryName:[null,[Validators.required]],
       })
      }
+  ngOnDestroy(): void {
+    this.subscribe.unsubscribe();
+    console.log("done unsubscribe");
+
+  }
 
   ngOnInit(): void {}
   getErrorMessage(control:any){
@@ -89,7 +96,7 @@ createSectors(){
     }
 
    upload(){
-    this._uploadService
+  this.subscribe = this._uploadService
     .upload
     (this.formGroup.controls['logo'].value)
     .subscribe((file)=>{
@@ -100,7 +107,7 @@ createSectors(){
 };
 
 getDownloadURL(){
-  this._uploadService.getDownloadURL().subscribe((url)=>{
+ this.subscribe = this._uploadService.getDownloadURL().subscribe((url)=>{
   console.log();
   this.formGroup.controls['logo'].setValue(url);
   this.createSectors();
