@@ -46,7 +46,7 @@ export class StartupsService {
       .snapshotChanges()
       .pipe(
         map((data) =>
-          data.map((obj) => ({ key: obj.payload.key, ...obj.payload.val() }))
+          data.map((obj) => ({ ...obj.payload.val(), key: obj.payload.key }))
         )
       );
   }
@@ -56,9 +56,9 @@ export class StartupsService {
       .list<Startup>('/requestStartup')
       .snapshotChanges()
       .pipe(
-        map((data) => {
-          data.map((obj) => ({ key: obj.payload.key, ...obj.payload.val() }));
-        })
+        map((data) =>
+          data.map((obj) => ({ key: obj.payload.key, ...obj.payload.val() }))
+        )
       );
   }
 

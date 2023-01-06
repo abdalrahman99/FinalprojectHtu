@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Sectors } from 'src/app/core/interfaces/sector.interface';
 import { SectorsService } from 'src/app/core/services/sectors/sectors.service';
 import { UploadService } from 'src/app/core/services/upload.service';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-edit-sectors',
   templateUrl: './edit-sectors.component.html',
   styleUrls: ['./edit-sectors.component.css']
 })
-export class EditSectorsComponent implements OnInit {
+export class EditSectorsComponent implements OnInit , OnDestroy{
   formGroup:FormGroup;
   imgSrc:any;
   key:string='';
+  subscribe!:Subscription;
   formData:Sectors={
     name:'',
     logo:'',
@@ -37,9 +39,13 @@ export class EditSectorsComponent implements OnInit {
         categoryName:[null,[Validators.required]],
       })
      }
+  ngOnDestroy(): void {
+    this.subscribe.unsubscribe();
+    console.log("done unsubscribe");
+  }
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe((result)=>{
+  this.subscribe = this.activatedRoute.queryParams.subscribe((result)=>{
       if(result['key']) {
         this.key=result['key'];
          this.getById();
@@ -48,7 +54,7 @@ export class EditSectorsComponent implements OnInit {
   })
   }
   getById(){
-    this._sectorsService.getById(this.key).subscribe((result:any)=>{
+  this.subscribe = this._sectorsService.getById(this.key).subscribe((result:any)=>{
       this.formGroup=this.formBulider.group({
         logo: result['logo'],
         name:[result['name'],[Validators.required]],
@@ -105,7 +111,7 @@ updateSectors(){
  }
 
  getDownloadURL(){
-  this._uploadService.getDownloadURL().subscribe((url)=>{
+ this.subscribe = this._uploadService.getDownloadURL().subscribe((url)=>{
   console.log();
   this.formGroup.controls['logo'].setValue(url);
   this.updateSectors();

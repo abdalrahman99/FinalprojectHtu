@@ -55,7 +55,7 @@ export class ApprovalComponent implements OnInit {
 
 
   onDeleteCliked(row:Startup){
-    this._startupServices.delete(row.key).then(()=>{
+    this._approvalService.delete(row.key).then(()=>{
      window.alert('Deleted sucessfull');
     });
  }

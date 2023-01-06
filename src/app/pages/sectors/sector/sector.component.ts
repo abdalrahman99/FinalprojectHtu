@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Sectors } from 'src/app/core/interfaces/sector.interface';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { SectorsService } from 'src/app/core/services/sectors/sectors.service';
@@ -11,17 +12,23 @@ import { SectorsService } from 'src/app/core/services/sectors/sectors.service';
   templateUrl: './sector.component.html',
   styleUrls: ['./sector.component.css']
 })
-export class SectorComponent implements OnInit {
+export class SectorComponent implements OnInit, OnDestroy {
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     displayedColumns :String[] =['name','color','sectors','categoryName'];
     dataSource = new MatTableDataSource<Sectors>([]);
     loading=true;
     userData:any;
+    subscribe!:Subscription;
     constructor(
     private router:Router,
     private _sectorsService:SectorsService,
     private _authService:AuthService
     ){}
+  ngOnDestroy(): void {
+    this.subscribe.unsubscribe();
+    console.log("done unsubscribe");
+
+  }
 
   ngOnInit(): void {
     this.getuserInf()
@@ -29,7 +36,7 @@ export class SectorComponent implements OnInit {
   onRowClicked(){}
 
   getuserInf(){
-    this._authService.userInf.subscribe((user)=>{
+    this.subscribe = this._authService.userInf.subscribe((user)=>{
       this.userData = user;
       console.log(this.userData );
       if(this.userData.role){
@@ -42,7 +49,7 @@ export class SectorComponent implements OnInit {
   }
 
   getAllData(){
-    this._sectorsService.getAll().subscribe((result:any)=>{
+    this.subscribe = this._sectorsService.getAll().subscribe((result:any)=>{
       if(result){
       this.dataSource =new MatTableDataSource(result);
       console.log(result);
