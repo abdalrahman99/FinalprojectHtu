@@ -1,5 +1,9 @@
+
 .row{
   display: flex;
+}
+mat-form-field {
+width: 90%;
 }
 .col{
   flex: 1;
@@ -9,6 +13,12 @@ text-align: end;
 }
 .btn-action{
   margin-inline-start: 10px;
+  border-radius: 8px;
+  background-color: cadetblue;
+}
+.btn-action:hover{
+  color: #fff;
+  background-color: blue;
 }
 table{
   width: 100%;

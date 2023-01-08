@@ -4,14 +4,14 @@
     <div class="loading">
       <mat-spinner  diameter="20" color="primary" *ngIf="loading" ></mat-spinner>
     </div>
-
+<span>Dashboard</span>
     <mat-list *ngIf="!loading">
       <div *ngFor="let item of navMenu.children">
         <div *ngIf="item.children.length>0 ; else hasNoChildren">
           <mat-list-item  *ngIf="item.role === userData.role || item.role.length === 0" >
-            <mat-icon matListItemIcon >
+            <!-- <mat-icon matListItemIcon >
              {{item.icon}}
-            </mat-icon>
+            </mat-icon> -->
             <div matListItemTitle class="item-text">
               {{item.displayName}}
             </div>
@@ -20,9 +20,9 @@
           <a [routerLink]="[childrenOfItem.route]"
           *ngIf="childrenOfItem.role === userData.role || childrenOfItem.role.length === 0">
             <mat-list-item>
-              <mat-icon matListItemIcon >
+              <!-- <mat-icon matListItemIcon >
                {{childrenOfItem.icon}}
-              </mat-icon>
+              </mat-icon> -->
               <div matListItemTitle class="item-text" >
                 {{childrenOfItem.displayName}}
               </div>
@@ -35,9 +35,9 @@
           *ngIf="item.role === userData.role || item.role.length === 0"
           >
             <mat-list-item>
-              <mat-icon matListItemIcon >
+              <!-- <mat-icon matListItemIcon >
                {{item.icon}}
-              </mat-icon>
+              </mat-icon> -->
               <div matListItemTitle class="item-text" >
                 {{item.displayName}}
               </div>
@@ -47,9 +47,12 @@
       </div>
     </mat-list>
 
-    <button mat-button style="color:white" (click)="onLoggedoutClicked()">
+<div class="logout">
+
+    <button mat-button style="color:black" (click)="onLoggedoutClicked()">
       <mat-icon>logout</mat-icon>
       logout</button>
+    </div>
     </mat-sidenav>
 
     <mat-sidenav-content>
