@@ -26,8 +26,10 @@ export class PreviewComponent implements OnInit, OnDestroy {
     private _startupService: StartupsService
   ) {}
   ngOnDestroy(): void {
-    this.subscribe.unsubscribe();
-    console.log('done subscribe');
+    if (this.subscribe) {
+      this.subscribe.unsubscribe();
+    }
+    console.log('done unsubscribe');
   }
 
   ngOnInit(): void {

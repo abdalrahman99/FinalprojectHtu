@@ -14,6 +14,7 @@ table{
   width: 100%;
 
 }
-hover{
+.hover{
   cursor: pointer;
 }
+

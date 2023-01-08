@@ -1,8 +1,4 @@
-/* img{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-} */
-.example-card {
-  max-width: 400px;
+.preview-card {
+  max-width: 300px;
 }
+

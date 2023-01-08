@@ -12,12 +12,12 @@ import { UploadService } from 'src/app/core/services/upload.service';
   templateUrl: './update-startup.component.html',
   styleUrls: ['./update-startup.component.css'],
 })
-export class UpdateStartupComponent implements OnInit , OnDestroy {
+export class UpdateStartupComponent implements OnInit, OnDestroy {
   formGroup: FormGroup;
   imgSrc: any;
   key: string = '';
   listOfSectors: any[] = [];
-  subscribe!:Subscription;
+  subscribe!: Subscription;
   constructor(
     private activatedRoute: ActivatedRoute,
     private _startupService: StartupsService,
@@ -38,19 +38,21 @@ export class UpdateStartupComponent implements OnInit , OnDestroy {
     });
   }
   ngOnDestroy(): void {
-    this.subscribe.unsubscribe();
-    console.log("done unsubscribe");
+    if (this.subscribe) {
+      this.subscribe.unsubscribe();
+    }
+    console.log('done unsubscribe');
   }
 
   getAllSectors() {
-  this.subscribe = this._sectorService.getAll().subscribe((result) => {
+    this.subscribe = this._sectorService.getAll().subscribe((result) => {
       if (result) {
         this.listOfSectors = result;
       }
     });
   }
   ngOnInit(): void {
-this.subscribe = this.activatedRoute.queryParams.subscribe((result) => {
+    this.subscribe = this.activatedRoute.queryParams.subscribe((result) => {
       if (result['key']) {
         this.key = result['key'];
         this.getById();
@@ -60,22 +62,24 @@ this.subscribe = this.activatedRoute.queryParams.subscribe((result) => {
   }
 
   getById() {
-  this.subscribe = this._startupService.getById(this.key).subscribe((result: any) => {
-      this.formGroup = this.formBulider.group({
-        city: result['city'],
-        emailAddress: [
-          result['emailAddress'],
-          [Validators.email, Validators.required],
-        ],
-        logo: result['logo'],
-        name: [result['name'], [Validators.required]],
-        numberOfEmployees: result['numberOfEmployees'],
-        sectors: [result['sectors'], [Validators.required]],
-        websiteUrl: [result['websiteUrl'], [Validators.required]],
-        yearOfEstablishment: result['yearOfEstablishment'],
+    this.subscribe = this._startupService
+      .getById(this.key)
+      .subscribe((result: any) => {
+        this.formGroup = this.formBulider.group({
+          city: result['city'],
+          emailAddress: [
+            result['emailAddress'],
+            [Validators.email, Validators.required],
+          ],
+          logo: result['logo'],
+          name: [result['name'], [Validators.required]],
+          numberOfEmployees: result['numberOfEmployees'],
+          sectors: [result['sectors'], [Validators.required]],
+          websiteUrl: [result['websiteUrl'], [Validators.required]],
+          yearOfEstablishment: result['yearOfEstablishment'],
+        });
+        this.imgSrc = result['logo'];
       });
-      this.imgSrc = result['logo'];
-    });
   }
 
   getErrorMessage(control: any) {
@@ -110,7 +114,7 @@ this.subscribe = this.activatedRoute.queryParams.subscribe((result) => {
   }
 
   upload() {
-  this.subscribe = this._uploadService
+    this.subscribe = this._uploadService
       .upload(this.formGroup.controls['logo'].value)
       .subscribe((file) => {
         if (file?.metadata) {
@@ -120,7 +124,7 @@ this.subscribe = this.activatedRoute.queryParams.subscribe((result) => {
   }
 
   getDownloadURL() {
-  this.subscribe =  this._uploadService.getDownloadURL().subscribe((url) => {
+    this.subscribe = this._uploadService.getDownloadURL().subscribe((url) => {
       console.log();
       this.formGroup.controls['logo'].setValue(url);
       this.updateStartup();

@@ -2,14 +2,14 @@
   <mat-spinner  diameter="20" color="primary" *ngIf="loading" ></mat-spinner>
 </div>
 <div *ngIf="!loading">
-<div class="prev">
-  <mat-card class="example-card">
+<div class="preview">
+  <mat-card class="preview-card">
     <img [src]="startup.logo" alt="" >
     <mat-card-content>
       <h1>{{startup.name}}</h1>
       <h4>{{startup.emailAddress}}</h4>
-      <p>{{startup.sectors}}</p>
       <p>{{startup.websiteUrl}}</p>
+      <p *ngFor="let item of startup.sectors">{{item.name}}</p>
     </mat-card-content>
   </mat-card>
 
