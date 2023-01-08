@@ -25,8 +25,10 @@ export class SectorComponent implements OnInit, OnDestroy {
     private _authService:AuthService
     ){}
   ngOnDestroy(): void {
-    this.subscribe.unsubscribe();
-    console.log("done unsubscribe");
+     if (this.subscribe) {
+      this.subscribe.unsubscribe();
+    }
+    console.log('done unsubscribe');
 
   }
 

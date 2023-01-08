@@ -47,8 +47,10 @@ export class AddStartupComponent implements OnInit, OnDestroy {
     });
   }
   ngOnDestroy(): void {
-    this.subscribe.unsubscribe();
-    console.log('done  unsubscribe');
+    if (this.subscribe) {
+      this.subscribe.unsubscribe();
+    }
+    console.log('done unsubscribe');
   }
 
   ngOnInit(): void {

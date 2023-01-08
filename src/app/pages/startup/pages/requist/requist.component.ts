@@ -52,7 +52,9 @@ export class RequistComponent implements OnInit, OnDestroy {
     });
   }
   ngOnDestroy(): void {
-    this.subscribe.unsubscribe();
+    if (this.subscribe) {
+      this.subscribe.unsubscribe();
+    }
     console.log('done unsubscribe');
   }
 

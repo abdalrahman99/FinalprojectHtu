@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Startup } from 'src/app/core/interfaces/startups.interface';
 import { ApprovalService } from 'src/app/core/services/approval/approval.service';
 import { StartupsService } from 'src/app/core/services/startup/startups.service';
@@ -12,19 +13,27 @@ import { StartupsService } from 'src/app/core/services/startup/startups.service'
   styleUrls: ['./approval.component.css']
 })
 
-export class ApprovalComponent implements OnInit {
+export class ApprovalComponent implements OnInit , OnDestroy{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource=new MatTableDataSource<Startup>([]);
   displayedColumns =['name','emailAddress','sectors','city','action'];
   loading = true;
   key:string='';
+  listOfSectors: any[] = [];
+  subscribe!: Subscription;
   constructor(
     private _startupServices:StartupsService,
     private _approvalService:ApprovalService,
     private activatedRoute:ActivatedRoute,
   ){}
+  ngOnDestroy(): void {
+    if (this.subscribe) {
+      this.subscribe.unsubscribe();
+    }
+    console.log('done unsubscribe');
+  }
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe((result)=>{
+    this.subscribe = this.activatedRoute.queryParams.subscribe((result)=>{
       if(result['key'])
       {
         this.key=result['key'];
@@ -35,7 +44,7 @@ export class ApprovalComponent implements OnInit {
   }
 
   getAllData() {
-    this._approvalService.getAll().subscribe((result: any) => {
+    this.subscribe =  this._approvalService.getAll().subscribe((result: any) => {
       if (result) {
         this.dataSource = new MatTableDataSource(result);
         console.log(result);

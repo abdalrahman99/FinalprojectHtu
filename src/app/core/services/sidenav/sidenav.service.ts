@@ -12,7 +12,7 @@ export class SidenavService {
   getNavMenu():NavMenuDto{
     return new NavMenuDto('NavMenu',[
       new NavItemDto('Startups','dashboard' ,'', '/startup'),
-      new NavItemDto('Approval','approval','admin','/approval'),
+      new NavItemDto('Approval','check_box','admin','/approval'),
       new NavItemDto('Sectors','dashboard','admin','/sectors'),
     ])
   }
