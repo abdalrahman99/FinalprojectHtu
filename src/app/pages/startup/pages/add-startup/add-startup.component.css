@@ -23,7 +23,12 @@ form{
   background-size: cover;
 }
 button{
-  width: 130px;
+  width: 150px;
+  border-radius: 15px;
+}
+button:hover{
+  background-color: aliceblue;
+  color: black;
 }
 mat-form-field{
   width: 100%;

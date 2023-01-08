@@ -15,12 +15,11 @@
 
   <div class="col col-startup-btn" >
     <button mat-raised-button
-    color="primary"
     class="btn-action"
     (click)="onAddCliked()"
     *ngIf="userData.role === 'admin'"
-    >
-    Add Startup</button>
+    ><mat-icon matSuffix>add</mat-icon>
+    Add Startup </button>
     <button mat-raised-button
     color="primary"
     class="btn-action"
@@ -59,7 +58,7 @@
     </ng-container>
 
     <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef ></th>
+      <th mat-header-cell *matHeaderCellDef > Action </th>
       <td mat-cell *matCellDef="let row">
 
         <button mat-icon-button

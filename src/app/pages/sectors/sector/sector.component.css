@@ -3,8 +3,8 @@
   justify-content: space-between;
   align-items: center;
 }
-.full-width{
-  width: auto;
+.filter-col{
+  width: 70%;
 }
 .action-col{
   margin-inline-start: 10px;
@@ -15,4 +15,13 @@ table{
 }
 hover{
   cursor: pointer;
+}
+.btn-action{
+  margin-inline-start: 10px;
+  border-radius: 8px;
+  background-color: cadetblue;
+}
+.btn-action:hover{
+  color: #fff;
+  background-color: blue;
 }
