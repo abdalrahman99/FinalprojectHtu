@@ -12,14 +12,13 @@ import { Subscription } from 'rxjs';
 })
 export class PreviewComponent implements OnInit, OnDestroy {
   key: string = '';
-  subscribe!: Subscription;
   startup: Startup = {
     emailAddress: '',
     name: '',
     sectors: [],
     websiteUrl: '',
   };
-
+  subscribe!: Subscription;
   loading = true;
   constructor(
     private activatedRoute: ActivatedRoute,

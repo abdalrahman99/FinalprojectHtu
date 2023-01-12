@@ -10,7 +10,7 @@ import { StartupsService } from 'src/app/core/services/startup/startups.service'
   styleUrls: ['./startup.component.css'],
 })
 export class StartupComponent implements OnInit {
-  loading = true;
+
   arrayStartup:any ;
   constructor(
     private _startupServices: StartupsService,
