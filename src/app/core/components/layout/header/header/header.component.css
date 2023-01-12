@@ -1,6 +1,6 @@
 
 mat-toolbar{
- justify-content: space-between;
+   justify-content: space-between;
    background-color: white;
 }
 span{
@@ -17,8 +17,8 @@ nav ul {
 a{
   text-decoration: none;
   color: black;
-  font-family: cursive;
 }
 a:hover{
-  color: red;
+  color: rgb(47, 34, 233);
+  cursor: pointer;
 }
