@@ -11,3 +11,4 @@ export interface Startup{
   websiteUrl:string,
   emailAddress:string,
 }
+

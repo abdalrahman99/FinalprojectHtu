@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 import { PreviewStartupComponent } from './preview-startup/preview-startup.component';
 import { StartupComponent } from './startup/startup.component';
 
 const routes: Routes = [
-  {
-    path:'',
+    {path:'',
     redirectTo:'startup',
-    pathMatch:'full',
-  },
-  {
-    path:'startup',
-    component:StartupComponent
-  },
+    pathMatch:'full'
+    },
+    {
+      path:'startup',
+      component:StartupComponent
+    },
   {
     path:'preview-startup',
     component:PreviewStartupComponent,

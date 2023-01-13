@@ -1,4 +1,10 @@
 .preview-card {
   max-width: 300px;
 }
+.preview{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 

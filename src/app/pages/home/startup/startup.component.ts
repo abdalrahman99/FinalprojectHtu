@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { Startup } from 'src/app/core/interfaces/startups.interface';
 import { StartupsService } from 'src/app/core/services/startup/startups.service';
 
 @Component({
@@ -30,7 +29,13 @@ export class StartupComponent implements OnInit {
       }
     });
   }
-  onPreviewClicked() {
-    this.router.navigate(['/home/preview-startup']);
-  }
+  onPreviewClicked(item : Startup)  {
+    this.router.navigate(['/home/preview-startup'],{
+      queryParams: {
+        key: item.key,
+      },
+
+  })
+
+}
 }

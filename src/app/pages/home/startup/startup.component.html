@@ -1,6 +1,8 @@
 
+<h2>Startups in jordan </h2>
 <div class="startups">
-  <!-- <h1>Startups in jordan </h1> -->
+  <div class="text">
+  </div>
 <div class="card" *ngFor="let item of arrayStartup" >
     <div  class="section" >
         <div class="face front " >
@@ -9,7 +11,7 @@
         </div>
           <div class="face back">
             <h3> {{ item.name }} </h3>
-            <button mat-button (click)="onPreviewClicked()"> Read More </button>
+            <button mat-button (click)="onPreviewClicked(item)"> Read More </button>
           </div>
       </div>
      </div>

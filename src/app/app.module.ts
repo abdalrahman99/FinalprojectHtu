@@ -9,9 +9,12 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { SideNavModule } from './core/components/layout/side-nav/side-nav.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -21,6 +24,7 @@ import { SideNavModule } from './core/components/layout/side-nav/side-nav.module
     AngularFireModule.initializeApp(environment.fierbase),
     SideNavModule,
   ],
+  exports:[],
   providers: [],
   bootstrap: [AppComponent]
 })

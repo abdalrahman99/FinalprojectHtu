@@ -7,9 +7,14 @@
     <img [src]="startup.logo" alt="" >
     <mat-card-content>
       <h1>{{startup.name}}</h1>
-      <h4>{{startup.emailAddress}}</h4>
+      <h2 *ngFor="let item of startup.sectors">{{item.name}}</h2>
       <p>{{startup.websiteUrl}}</p>
-      <p *ngFor="let item of startup.sectors">{{item.name}}</p>
+      <div class="col">
+        <p>{{startup.city}}</p>
+      <h4>{{startup.emailAddress}}</h4>
+      </div>
+
+
     </mat-card-content>
   </mat-card>
 

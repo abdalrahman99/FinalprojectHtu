@@ -1,0 +1,40 @@
+.header{
+  background: url(https://firebasestorage.googleapis.com/v0/b/htu-final-5b6ed.appspot.com/o/homeimg%2Fshutterstock_795017047-e1614943597309.jpg?alt=media&token=2cc8035c-a4a7-46d7-a03d-389db84a2a52);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 450px;
+}
+.mdee{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 150px;
+
+}
+.mdee h1{
+  font-size: 50px;
+}
+.mdee pre{
+  font-size: 20px;
+}
+.about{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.about-ministry{
+    text-align: center;
+    padding: 30px;
+    margin: 30px;
+}
+.about-ministry h1{
+  font-size: 44px;
+}
+
+.about-ministry p{
+  font-size: 23px;
+    padding: 15px;
+}
