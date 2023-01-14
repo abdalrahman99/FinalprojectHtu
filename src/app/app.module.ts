@@ -24,7 +24,6 @@ import { SideNavModule } from './core/components/layout/side-nav/side-nav.module
     AngularFireModule.initializeApp(environment.fierbase),
     SideNavModule,
   ],
-  exports:[],
   providers: [],
   bootstrap: [AppComponent]
 })

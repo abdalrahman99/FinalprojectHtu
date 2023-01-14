@@ -6,7 +6,7 @@ import { HeaderModule } from 'src/app/core/components/layout/header/header.modul
 import { RouterModule } from '@angular/router';
 import { StartupComponent } from './startup/startup.component';
 import { PreviewStartupComponent } from './preview-startup/preview-startup.component';
-import { AppRoutingModule } from './home-routing.module';
+import { HomeRoutingModule } from './home-routing.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
@@ -31,8 +31,8 @@ const MatImport=[
   imports: [
     CommonModule,
     HeaderModule,
-    RouterModule,
-    AppRoutingModule,
+    // RouterModule,
+    HomeRoutingModule,
     ...MatImport
   ]
 })
