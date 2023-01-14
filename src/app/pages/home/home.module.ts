@@ -6,10 +6,12 @@ import { HeaderModule } from 'src/app/core/components/layout/header/header.modul
 import { RouterModule } from '@angular/router';
 import { StartupComponent } from './startup/startup.component';
 import { PreviewStartupComponent } from './preview-startup/preview-startup.component';
-import { AppRoutingModule } from './home-routing.module';
+import { HomeRoutingModule } from './home-routing.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { MainComponent } from './main/main.component';
+import { FooterComponent } from './footer/footer.component';
 
 const MatImport=[
   MatCardModule,
@@ -22,15 +24,16 @@ const MatImport=[
     HomeComponent,
     StartupComponent,
     PreviewStartupComponent,
+    MainComponent,
+    FooterComponent,
 
   ],
   imports: [
     CommonModule,
     HeaderModule,
-    RouterModule,
-    AppRoutingModule,
+    // RouterModule,
+    HomeRoutingModule,
     ...MatImport
-
   ]
 })
 export class HomeModule { }

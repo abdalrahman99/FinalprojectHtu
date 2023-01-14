@@ -33,6 +33,7 @@ export class PreviewComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscribe = this.activatedRoute.queryParams.subscribe((result) => {
+      console.log(result);
       if (result['key']) {
         this.key = result['key'];
         this.getById();
@@ -44,6 +45,7 @@ export class PreviewComponent implements OnInit, OnDestroy {
     this.subscribe = this._startupService
       .getById(this.key)
       .subscribe((result: any) => {
+        console.log(result.startup);
         if (result) {
           this.startup = result;
           this.loading = false;
