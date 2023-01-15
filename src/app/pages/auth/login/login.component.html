@@ -16,10 +16,8 @@
         <input matInput placeholder="Password" type="password" formControlName="password" >
         <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
       </mat-form-field>
-
-      <a [routerLink]="['/auth/signup']">create account?</a>
-
       <button mat-raised-button color="primary" (click)="onloginCliked()">Login</button>
+      <a [routerLink]="['/auth/signup']">create account?</a>
     </form>
   </div>
 </div>

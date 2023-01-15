@@ -17,6 +17,7 @@ import { PreviewComponent } from './pages/preview/preview.component';
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { RequistComponent } from './pages/requist/requist.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
 
 const MatImport=[
   MatTableModule,
@@ -28,6 +29,7 @@ const MatImport=[
   MatSelectModule,
   MatProgressSpinnerModule,
   MatCardModule,
+  MatDialogModule,
 ]
 @NgModule({
   declarations: [
