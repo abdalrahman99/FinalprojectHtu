@@ -1,5 +1,9 @@
-p{
-  background-color: #f4f5f9;
-    width: 100%;
-    padding: 3rem;
+.text{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: cornsilk;
+  height: 80px;
 }
+
