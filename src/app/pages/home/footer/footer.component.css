@@ -1,9 +1,22 @@
-.text{
+
+.footer{
+
+  display: flex;
+  justify-content:space-around;
+  padding: 2rem;
+
+}
+.footer-title{
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.footer-title span{
+  color: darkblue;
+}
+.social-icon{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  background-color: cornsilk;
-  height: 80px;
+  font-size: 20px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
-
