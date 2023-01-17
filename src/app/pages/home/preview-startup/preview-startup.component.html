@@ -3,21 +3,14 @@
   <mat-card class="preview-card">
     <img class="logo" [src]="startup.logo" alt=" " />
     <mat-card-content>
-      <h3>Name:</h3>
-      <p>{{startup.name}}</p>
-      <h3>Email Address:</h3>
-      <p>{{startup.emailAddress}}</p>
-      <h3>City:</h3>
-      <p>{{ startup.city }}</p>
-      <h3>Sector:</h3>
-      <h2 *ngFor="let item of startup.sectors">{{item.name}}</h2>
+      <h1>Name:&nbsp;{{startup.name}}</h1>
+      <h3>Email Address:&nbsp;{{startup.emailAddress}}</h3>
+      <h2>websiteUrl:&nbsp;{{ startup.websiteUrl }}</h2>
+      <h2 *ngFor="let item of startup.sectors" >Sector:&nbsp;{{item.name}}</h2>
       <div class="col">
-      <h3>Year Of Establishment:</h3>
-      <p>{{ startup.yearOfEstablishment }}</p>
-      <h3>Number Of Employees:</h3>
-      <p>{{ startup.numberOfEmployees }} </p>
-      <h3>websiteUrl:</h3>
-      <p>{{ startup.websiteUrl }}</p>
+      <h3>Year Of Establishment:&nbsp;{{ startup.yearOfEstablishment }}</h3>
+      <h3>Number Of Employees:&nbsp;{{ startup.numberOfEmployees }}</h3>
+      <h4>City:&nbsp;{{ startup.city }}</h4>
       </div>
     </mat-card-content>
   </mat-card>
