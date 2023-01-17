@@ -5,27 +5,13 @@
   width: 100%;
   height: 450px;
 }
-.mdee{
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-     padding: 100px;
-
-
+.mdee {
+  color: white;
+  padding: 80px;
 }
 .mdee h1{
   font-size: xx-large;
-  margin: 10px;
-  text-align: center;
-  position: absolute;
-  left: 30%;
-  bottom: 50%;
-  transform: translate(-50%, -50%);
-  color: cornsilk;
-}
-.mdee pre{
-  font-size: 20px;
+  margin: 10%;
 }
 .about{
   display: flex;
