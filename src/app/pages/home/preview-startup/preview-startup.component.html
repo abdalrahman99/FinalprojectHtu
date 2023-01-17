@@ -1,18 +1,34 @@
 
 <div class="preview">
   <mat-card class="preview-card">
-    <img class="logo" [src]="startup.logo" alt=" " />
+    <div class="imges">
+      <img class="logo" [src]="startup.logo" alt=" " />
+    </div>
+    <div class="img-text">
+     {{startup.name}}
+     <a href=""><i class="fa fa-facebook"></i></a>
+     <a href=""><i class="fa fa-instagram"></i></a>
+    <a href=""><i class="fa fa-twitter"></i></a>
+    </div>
     <mat-card-content>
-      <h1>Name:&nbsp;{{startup.name}}</h1>
-      <h3>Email Address:&nbsp;{{startup.emailAddress}}</h3>
-      <h2>websiteUrl:&nbsp;{{ startup.websiteUrl }}</h2>
-      <h2 *ngFor="let item of startup.sectors" >Sector:&nbsp;{{item.name}}</h2>
-      <div class="col">
-      <h3>Year Of Establishment:&nbsp;{{ startup.yearOfEstablishment }}</h3>
-      <h3>Number Of Employees:&nbsp;{{ startup.numberOfEmployees }}</h3>
-      <h4>City:&nbsp;{{ startup.city }}</h4>
-      </div>
-    </mat-card-content>
+          <mat-tab-group animationDuration="0ms">
+            <mat-tab label="general information">
+              <div class="text-lable">
+                <h1> Startup Name:&nbsp;{{startup.name}}</h1>
+              <h3>Year Of Establishment:&nbsp;{{ startup.yearOfEstablishment }}</h3>
+              <h3>Email Address:&nbsp;{{startup.emailAddress}}</h3>
+              <h3>Number Of Employees:&nbsp;{{ startup.numberOfEmployees }}</h3>
+              <h4>City:&nbsp;{{ startup.city }}</h4>
+              </div>
+            </mat-tab>
+            <mat-tab label="sector information">
+              <div class="text-lable">
+              <h2 *ngFor="let item of startup.sectors" >Sector:&nbsp;{{item.name}}</h2>
+              <h2>websiteUrl:&nbsp;{{ startup.websiteUrl }}</h2>
+            </div>
+            </mat-tab>
+          </mat-tab-group>
+        </mat-card-content>
   </mat-card>
 
 </div>
