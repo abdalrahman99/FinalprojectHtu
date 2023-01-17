@@ -1,11 +1,18 @@
-.preview-card {
-  max-width: 300px;
-
-}
 .preview{
+   display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+img{
+  width: 320px;
+  height: 250px;
+}
+mat-card-content{
   display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
