@@ -18,6 +18,7 @@ import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { RequistComponent } from './pages/requist/requist.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 const MatImport=[
   MatTableModule,
@@ -30,6 +31,7 @@ const MatImport=[
   MatProgressSpinnerModule,
   MatCardModule,
   MatDialogModule,
+  MatDatepickerModule,
 ]
 @NgModule({
   declarations: [
