@@ -2,16 +2,18 @@
 .footer{
 
   display: flex;
-  justify-content:space-around;
+  justify-content:center;
   padding: 2rem;
+  background-color: #14223b;
 
 }
 .footer-title{
   font-size: 1.2rem;
   font-weight: 700;
+  color: #fff;
 }
 .footer-title span{
-  color: darkblue;
+  color: rgb(233, 233, 241);
 }
 .social-icon{
   display: flex;

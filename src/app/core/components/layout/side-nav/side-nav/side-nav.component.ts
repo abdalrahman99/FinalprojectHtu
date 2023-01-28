@@ -28,8 +28,8 @@ export class SideNavComponent implements OnInit , AfterViewInit{
     }
 
   ngAfterViewInit(): void {
-   this.breakpoint.observe(['max-width:750px'])
-   .pipe(delay(1))
+   this.breakpoint.observe(['max-width:800px'])
+  .pipe(delay(1))
    .subscribe((value:BreakpointState)=>{
     if(value.matches){
       this.sidenav.mode='over';

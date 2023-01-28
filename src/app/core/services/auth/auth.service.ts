@@ -14,7 +14,7 @@ dbPath='/users';
 dbRef:AngularFireList<any>;
 
 userInf = new BehaviorSubject<any>({});
-isLoggedin$ = new BehaviorSubject<boolean>(!!localStorage.getItem('userId'));
+isLoggedin$ = new BehaviorSubject<boolean>(!!localStorage.getItem('userId')); //if user logged or notlogged
 userId:string = '';
 
 constructor(
@@ -23,7 +23,7 @@ constructor(
     private router:Router,
     ) {
     this.dbRef=angularFireDatabase.list(this.dbPath);
-    this.authStateSubscripe();
+    this.authStateSubscripe(); // بتشييك اذا اليوزر بعدو عامل لوجد او لا او مش عامل لوجد
   }
 
   get isLoggedIn(){
