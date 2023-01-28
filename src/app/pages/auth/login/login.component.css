@@ -3,13 +3,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #341f84;
+  background-color:#015d72;
 }
 .login-card{
   min-width: 300px;
   max-width: 900px;
   min-height: 300px;
-  /* box-shadow: 5px 10px 12px rgb(59, 42, 126)4; */
   background-color:#fff;
   border-radius: 10px;
 
@@ -20,7 +19,7 @@ form{
   padding: 2rem;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 1rem;
 }
 h3{
   text-align: center;
@@ -35,6 +34,7 @@ button{
 }
 button:hover{
   color:#fff;
-  background-color:black;
+  background-color: #009338;
+
 }
 

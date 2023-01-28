@@ -1,6 +1,6 @@
 
 <mat-sidenav-container>
-  <mat-sidenav #snav>
+  <mat-sidenav #snav id="side_bar" [mode]="'side'" >
     <div class="loading">
       <mat-spinner  diameter="20" color="primary" *ngIf="loading" ></mat-spinner>
     </div>
