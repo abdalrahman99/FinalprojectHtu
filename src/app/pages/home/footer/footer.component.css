@@ -15,10 +15,4 @@
 .footer-title span{
   color: rgb(233, 233, 241);
 }
-.social-icon{
-  display: flex;
-  flex-direction: row;
-  font-size: 20px;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+
