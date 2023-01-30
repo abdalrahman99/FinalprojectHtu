@@ -24,12 +24,12 @@ form{
 }
 button{
   width: 150px;
-  border-radius: 15px;
+  /* border-radius: 15px; */
 }
-button:hover{
+/* button:hover{
   background-color: aliceblue;
   color: black;
-}
+} */
 mat-form-field{
   width: 100%;
 }
